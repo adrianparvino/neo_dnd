@@ -1,0 +1,8 @@
+;; shadow-cljs configuration
+{:deps true
+
+ :builds {:app {:output-dir "../priv/static/js/"
+                :asset-path "/js",
+                :target :browser
+                :modules {:app {:entries [dnd.core] :init-fn dnd.core/init}}
+                :devtools {:after-load dnd.core/mount}}}}
