@@ -530,6 +530,12 @@ pbkdf2@^3.0.3:
     safe-buffer "^5.0.1"
     sha.js "^2.4.8"
 
+"phoenix@file:../deps/phoenix":
+  version "1.5.9"
+
+"phoenix_html@file:../deps/phoenix_html":
+  version "2.14.3"
+
 process-nextick-args@~2.0.0:
   version "2.0.1"
   resolved "https://registry.yarnpkg.com/process-nextick-args/-/process-nextick-args-2.0.1.tgz#7820d9b16120cc55ca9ae7792680ae7dba6d7fe2"

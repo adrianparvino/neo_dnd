@@ -17,6 +17,7 @@ defmodule NeoDndWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :index
+    get "/battle", PageController, :index
   end
 
   # Other scopes may use custom stacks.

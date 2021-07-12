@@ -4,5 +4,15 @@
  :builds {:app {:output-dir "../priv/static/js/"
                 :asset-path "/js",
                 :target :browser
+                :release {:js-options {:minimize-require true}
+                          :compiler-options {:optimizations :advanced}}
                 :modules {:app {:entries [dnd.core] :init-fn dnd.core/init}}
-                :devtools {:after-load dnd.core/mount}}}}
+                :devtools {:after-load dnd.core/mount
+                           ;; :preloads [day8.re-frame-10x.preload]
+                           }
+                ;; :dev
+                ;; {:compiler-options
+                ;;  {:closure-defines
+                ;;   {re-frame.trace.trace-enabled?        true
+                ;;    day8.re-frame.tracing.trace-enabled? true}}}
+                }}}
