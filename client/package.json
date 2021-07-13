@@ -1,17 +1,19 @@
 {
-  "name": "client",
+  "name": "stm32-controller",
   "version": "0.0.1",
   "private": true,
   "devDependencies": {
-    "shadow-cljs": "2.14.2"
+    "autoprefixer": "^10.3.1",
+    "cssnano": "^5.0.6",
+    "postcss": "^8.1.4",
+    "postcss-cli": "^8.3.1",
+    "shadow-cljs": "2.14.5",
+    "tailwindcss": "^2.2.2"
   },
   "dependencies": {
-    "bootstrap-switch-button-react": "^1.2.0",
+    "dnd5-srd": "^1.0.0",
     "highlight.js": "10.7.1",
     "react": "17.0.1",
-    "react-bootstrap": "^1.6.0",
-    "react-dom": "17.0.1",
-    "phoenix": "file:../deps/phoenix",
-    "phoenix_html": "file:../deps/phoenix_html"
+    "react-dom": "17.0.1"
   }
 }

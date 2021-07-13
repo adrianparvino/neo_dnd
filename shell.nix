@@ -5,7 +5,7 @@ pkgs.mkShell {
     pkgs.elixir
     pkgs.openjdk11
     pkgs.yarn
-    pkgs.nodejs-15_x
+    pkgs.nodejs-14_x
     pkgs.python2
     pkgs.clojure
     pkgs.inotify-tools

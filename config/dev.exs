@@ -50,7 +50,7 @@ config :neo_dnd, NeoDndWeb.Endpoint,
 config :neo_dnd, NeoDndWeb.Endpoint,
   live_reload: [
     patterns: [
-      ~r"priv/static/.*(css|png|jpeg|jpg|gif|svg)$",
+      # ~r"priv/static/.*(|png|jpeg|jpg|gif|svg)$",
       ~r"priv/gettext/.*(po)$",
       ~r"lib/neo_dnd_web/(live|views)/.*(ex)$",
       ~r"lib/neo_dnd_web/templates/.*(eex)$"
