@@ -8,15 +8,13 @@
         :modules {:app {:entries [dnd.core] :init-fn dnd.core/init}}
         :devtools {:after-load dnd.core/mount
                    :watch-dir "../priv/static"
-                   ;; :preloads [day8.re-frame-10x.preload]
-                   }
+                   :preloads [day8.re-frame-10x.preload]}
         :dev {:build-hooks [(teknql.tailwind/start-watch!)]
               :closure-defines {goog.DEBUG true}
-              ;; :compiler-options
-              ;; {:closure-defines
-              ;;  {re-frame.trace.trace-enabled?        true
-              ;;   day8.re-frame.tracing.trace-enabled? true}}
-              }
+              :compiler-options
+              {:closure-defines
+               {re-frame.trace.trace-enabled?        true
+                day8.re-frame.tracing.trace-enabled? true}}}
         :release {:js-options {:minimize-require true}
                   :compiler-options {:optimizations :advanced}
                   :closure-defines {goog.DEBUG false}
