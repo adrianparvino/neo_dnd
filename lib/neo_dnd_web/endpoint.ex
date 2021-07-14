@@ -7,7 +7,8 @@ defmodule NeoDndWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_neo_dnd_key",
-    signing_salt: "vpAqjaWc"
+    signing_salt: "vpAqjaWc",
+    log: :debug
   ]
 
   socket "/socket", NeoDndWeb.UserSocket,

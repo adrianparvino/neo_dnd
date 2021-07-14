@@ -13,7 +13,7 @@ defmodule NeoDnd.Application do
       NeoDndWeb.Telemetry,
       # Start the PubSub system
       {Phoenix.PubSub, name: NeoDnd.PubSub},
-      {NeoDnd.Battle, name: NeoDnd.Battle},
+      NeoDnd.Session,
       # Start the Endpoint (http/https)
       NeoDndWeb.Endpoint
       # Start a worker by calling: NeoDnd.Worker.start_link(arg)

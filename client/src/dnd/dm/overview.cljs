@@ -1,4 +1,4 @@
-(ns dnd.overview
+(ns dnd.dm.overview
   (:require [dnd.conditions :refer [conditions]]
             [dnd.equipment :refer [weapons]]
             [re-frame.core :as rf]))
@@ -27,12 +27,13 @@
          "-"
          "+")]]
      [:div
-      (for [{:keys [name desc]} conditions]
-        [:div
+      (for [{:keys [index name desc]} conditions]
+        [:div {:key index}
          [:p {:class [:font-bold]} name]
          (when show-details
-           (for [d desc]
-             [:p {:class [:text-xs]} d]))])]]))
+           (for [[i d] (map vector (range) desc)]
+             [:p {:key i :class [:text-xs]}
+              d]))])]]))
 
 (defn weapons-view []
   [:div {:class [:rounded :border :shadow-lg :p-4 :flex-initial]}
@@ -42,9 +43,10 @@
      [:tr
       (for [h ["Name" "Cost" "Damage" "Properties"]]
         [:th {:class [:px-8]} h])]]
-    (for [{:keys [name cost damage properties]} weapons]
+    (for [{:keys [index name cost damage properties]} weapons]
       (let [{:keys [quantity unit]} cost
             {:keys [damage_dice]} damage]
+        ^{:key index}
         [:tr
          [:td name]
          [:td {:class [:text-center]} (str quantity unit)]
@@ -86,7 +88,7 @@
       [:div {:class [:flex :flex-col]}
        [conditions-view]]
 
-      [:div {:class [:px-4 :gap-4 :flex :flex-row :flex-wrap :w-full :overflow-scroll]}
+      [:div {:class [:px-4 :gap-4 :flex :flex-row :flex-wrap :w-full :overflow-auto]}
        [:div {:class [:flex :flex-col :gap-4]}
         [conditions-view]
         [pace-view]]

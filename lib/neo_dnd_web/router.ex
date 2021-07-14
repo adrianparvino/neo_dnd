@@ -11,19 +11,28 @@ defmodule NeoDndWeb.Router do
 
   pipeline :api do
     plug :accepts, ["json"]
+    plug :fetch_session
   end
 
-  scope "/", NeoDndWeb do
-    pipe_through :browser
-
-    get "/", PageController, :index
-    get "/battle", PageController, :index
+  pipeline :authorized_api do
+    plug NeoDndWeb.Plugs.RoomSession
   end
 
   # Other scopes may use custom stacks.
-  # scope "/api", NeoDndWeb do
-  #   pipe_through :api
-  # end
+  scope "/api", NeoDndWeb do
+    pipe_through :api
+
+    post "/session", SessionController, :create
+
+    scope "/session" do
+      pipe_through :authorized_api
+
+      get "/", SessionController, :index
+      post "/logout", SessionController, :logout
+
+      resources "/:id/notes", NotesController, only: [:index, :create]
+    end
+  end
 
   # Enables LiveDashboard only for development
   #
@@ -39,5 +48,11 @@ defmodule NeoDndWeb.Router do
       pipe_through :browser
       live_dashboard "/dashboard", metrics: NeoDndWeb.Telemetry
     end
+  end
+
+  scope "/", NeoDndWeb do
+    pipe_through :browser
+
+    get "/*_x", PageController, :index
   end
 end

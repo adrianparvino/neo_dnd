@@ -2,6 +2,7 @@ defmodule NeoDndWeb.UserSocket do
   use Phoenix.Socket
 
   channel "battle", NeoDndWeb.BattleChannel
+  channel "session", NeoDndWeb.SessionChannel
 
   ## Channels
   # channel "room:*", NeoDndWeb.RoomChannel
